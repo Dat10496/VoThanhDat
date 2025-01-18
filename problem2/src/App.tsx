@@ -18,12 +18,13 @@ function App() {
   const [error, setError] = useState<string | undefined>();
   const [baseCode, setBaseCode] = useState<string>("USD");
   const [targetCode, setTargetCode] = useState<string>("VND");
-  const [baseCurrency, setBaseCurrency] = useState<number>();
-  const [targetCurrency, setTargetCurrency] = useState<string>();
+  const [baseCurrency, setBaseCurrency] = useState<number | undefined>();
+  const [targetCurrency, setTargetCurrency] = useState<string | undefined>();
   const [date, setDate] = useState<string>();
 
   const handleSwap = async () => {
     try {
+      setError("");
       setIsLoading(true);
       const response = await pairConversion(baseCode, targetCode, baseCurrency);
 
@@ -80,6 +81,7 @@ function App() {
             isLoading={isLoading}
             handleSwap={handleSwap}
             setBaseCurrency={setBaseCurrency}
+            baseCurrency={baseCurrency}
           />
 
           <CardContentTo

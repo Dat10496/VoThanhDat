@@ -15,14 +15,15 @@ function CardContentFrom({
   isLoading,
   codes,
   handleSwap,
+  baseCurrency,
 }: {
+  baseCurrency: number | undefined;
   setBaseCode: (value: string) => void;
   setBaseCurrency: (value: number) => void;
   handleSwap: () => void;
   isLoading: boolean;
   codes: [string, string][];
 }) {
-  //+
   return (
     <>
       <CardContent>
@@ -51,7 +52,7 @@ function CardContentFrom({
           <Button
             variant="outline"
             onClick={() => handleSwap()}
-            disabled={isLoading}
+            disabled={isLoading || !baseCurrency}
             className="shadow-md"
           >
             {!isLoading && "Confirm Swap"}
