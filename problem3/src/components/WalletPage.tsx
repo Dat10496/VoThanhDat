@@ -15,7 +15,7 @@ const classes = {
   },
 };
 
-const WalletPage: React.FC<Props> = (props: Props) => {
+const WalletPage: React.FC<Props> = (props) => {
   const { children, ...rest } = props;
 
   const balances = useWalletBalances();

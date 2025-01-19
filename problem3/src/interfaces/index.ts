@@ -8,6 +8,9 @@ export interface FormattedWalletBalance {
     formatted: string;
 }
 
+
+type BoxProps = object
+
 export interface Props extends BoxProps {
     children: any
 }
